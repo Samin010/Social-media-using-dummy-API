@@ -1,0 +1,41 @@
+
+.app-container{
+  display: flex;
+}
+.content{
+  width: 100%;
+}
+.sidebar{
+  min-height: 800px;
+}
+.post-card{
+  margin: 20px 30px;
+}
+.tags{
+  margin: 0 2px;
+}
+.reactions{
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.create-post{
+  width:80%;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+.welcome-message{
+  margin: 50px 0px;
+}
+.btn-primary{
+  margin-top: 15px;
+}
+.loading{
+  margin-top: 30px;
+  width: 50px;
+  height: 50px;
+}
+.post-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
