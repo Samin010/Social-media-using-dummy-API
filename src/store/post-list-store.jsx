@@ -2,7 +2,6 @@ import { createContext, useReducer ,useEffect,useState} from "react";
 
 export const PostList = createContext({
   postList: [],
-  loading:false,
   addPost: () => {},
   deletePost: () => {},
 });
@@ -22,7 +21,7 @@ const postListReducer = (currentPostList, action) => {
 };
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const addPost = (post) => {
     // console.log("inside add post",post)
     dispatchPostList({
@@ -31,14 +30,14 @@ const PostListProvider = ({ children }) => {
       
     });
   };
-  const addInitialPosts = (posts) => {
-    dispatchPostList({
-      type: "ADD_INITIAL_POSTS",
-      payload: {
-        posts,
-      },
-    });
-  };
+  // const addInitialPosts = (posts) => {
+  //   dispatchPostList({
+  //     type: "ADD_INITIAL_POSTS",
+  //     payload: {
+  //       posts,
+  //     },
+  //   });
+  // };
   const deletePost = (postId) => {
     dispatchPostList({
       type: "DELETE_POST",
@@ -48,20 +47,19 @@ const PostListProvider = ({ children }) => {
     });
   };
   
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://dummyjson.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch("https://dummyjson.com/posts")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addInitialPosts(data.posts);
+  //       setLoading(false);
+  //     });
+  // }, []);
   return (
     <PostList.Provider
       value={{
         postList,
-        loading,
         addPost,
         deletePost,
       }}
